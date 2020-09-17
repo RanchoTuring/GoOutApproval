@@ -1,0 +1,44 @@
+<!--pages/login/login.wxml-->
+  <view class="container">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="doUserInfo">登录</button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <form bindsubmit="verify" wx:if="{{isFirstLogin}}">
+    <view class="userAcess">
+      <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class="cu-avatar sm round margin-lr bg-cumtb">1</view>
+        <text>请选择对应的用户类型与微信号进行绑定</text>
+        <text></text>
+      </view>
+      <view class="bg-white">
+        <radio-group class="block" bindchange="scrollSteps" name="type">
+          <view class="cu-form-group" wx:for="{{userType}}" wx:key="*this">
+            <view class="title">{{item}}</view>
+            <radio class="yellow" value="{{index}}"></radio>
+          </view>
+        </radio-group>
+      </view>
+
+      <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class="cu-avatar sm round margin-lr bg-cumtb">2</view>
+        <text>学号/管理员授权号</text>
+        <text></text>
+      </view>
+      <view class="bg-white">
+        <view class="padding">
+          <input name="id" placeholder="请在这里输入您的答案"></input>
+          <!-- <textarea placeholder="请输入内容" name="{{index}}"></textarea> -->
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar btn-group margin-tb bg-white">
+      <button class="cu-btn bg-cumtb text-white round" form-type="submit">绑定</button>
+    </view>
+  </form>
+  <view wx:elif="{{isFirstLogin==false}}" class="text-white">
+    您已登录
+  <button bindtap="navigateToHome">进入</button>
+  </view>

@@ -1,0 +1,8 @@
+<!--pages/home/stu/stu.wxml-->
+<text>pages/home/stu/stu.wxml</text>
+
+<button>
+  <navigator url="../../student/apply/apply">
+    提交申请
+  </navigator>
+</button>
