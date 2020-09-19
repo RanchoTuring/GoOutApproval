@@ -1,0 +1,34 @@
+/* pages/student/access/access.wxss */
+
+.circle{
+  margin: 65rpx 65rpx;
+  width:164rpx;
+  height: 164rpx;
+  font-size: 82rpx;
+  line-height: 85rpx;
+  font-weight: bold;
+  text-align: center;
+  word-break: break-all;
+  border-radius: 50%;
+  background-color: #fff;
+  
+  transform: rotate(-45deg);
+}
+
+.yes{
+  /* padding: 25px; */
+  color:#5acc9b;
+  box-shadow: 
+  /* 0 0 0 2px #ffffff,  */
+  /* 0 0 0 8px #5acc9b,   */
+  0 0 0 50rpx #fff, 
+  0 0 0 65rpx #5acc9b;
+}
+.no{
+  color:#cc3434;
+  box-shadow: 
+  /* 0 0 0 2px #ffffff,  */
+  /* 0 0 0 8px #5acc9b,   */
+  0 0 0 50rpx #fff, 
+  0 0 0 65rpx #cc3434;
+}

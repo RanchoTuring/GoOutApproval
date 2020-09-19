@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -32,7 +32,7 @@
     "packNpmManually": false,
     "packNpmRelationList": []
   },
-  "appid": "wx2db5540a36fe5ac9",
+  "appid": "*********",
   "projectname": "WX%5CGoOutApproval",
   "libVersion": "2.8.1",
   "simulatorType": "wechat",

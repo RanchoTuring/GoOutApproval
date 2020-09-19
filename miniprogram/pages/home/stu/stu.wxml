@@ -1,8 +1,17 @@
 <!--pages/home/stu/stu.wxml-->
-<text>pages/home/stu/stu.wxml</text>
+<view class="banner" style="height: 35rpx;" />
+<image src="/images/logo.png" mode="widthFix" style="display:block;width:500rpx;margin:30rpx auto;"></image>
 
-<button>
-  <navigator url="../../student/apply/apply">
-    提交申请
-  </navigator>
-</button>
+<view class="text-center text-xxl text-bold text-white">疫情防控期间学生外出申请系统</view>
+<view class="text-center text-xl text-bold text-white margin-top">学生端</view>
+<view class="bgImg">
+  <view class="frame">
+    <button class="cu-btn block bg-grey" bindtap="navToApply">提交申请</button>
+
+    <button class="cu-btn margin-top-xl block bg-grey" bindtap="navToHistory">申请记录</button>
+    <button class="cu-btn margin-top-xl block bg-grey" bindtap="navToAccess">查看外出许可</button>
+  </view>
+</view>
+
+<view class="banner" style="height: 35rpx;" />
+<view class="text-center text-white margin-tb-sm">copyright© Rancho</view>

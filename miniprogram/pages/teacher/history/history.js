@@ -1,4 +1,4 @@
-// pages/teacher/approval/approval.js
+// pages/teacher/history/history.js
 const util=require('../../../utils/dataUtil.js')
 const app=getApp()
 Page({
@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //ans 0 姓名 1 性别  2 专业班级  3 外出日期  4 外出时段  5 外出原因 6 证明材料URL
+
   },
   navToDetail(e) {
     console.log(e)
@@ -16,19 +16,20 @@ Page({
     })
   },
   /**
-   * 生命周期函数--监听页面显示
+   * 生命周期函数--监听页面加载
    */
-  onShow: function () {
+  onLoad: function (options) {
     const db=wx.cloud.database()
     const that=this
-
-    db.collection(util.getDBById(app.globalData.id, app.globalData.type))
+    const dbName=util.getDBById(app.globalData.id, app.globalData.type)
+    const _=db.command
+    db.collection(dbName)
       .where({
-        status:0
+        status:_.in([-1,1])
       }).get()
       .then(res=>{
         that.setData({
-          applys:res.data
+          applys:res.data.reverse()
         })
       })
   }

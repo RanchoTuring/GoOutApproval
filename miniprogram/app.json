@@ -1,19 +1,23 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/home/stu/stu",
-    "pages/home/tec/tec",
+    "pages/student/access/access",
+    "pages/teacher/approval/approval",
     "pages/student/apply/apply",
-    "pages/teacher/approval/approval"
-
+    "pages/home/tec/tec",
+    "pages/home/stu/stu",
+    "pages/student/history/history",
+    "pages/student/detail/detail",
+    "pages/teacher/detail/detail",
+    "pages/teacher/history/history"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "矿大北京学生外出申请系统",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }

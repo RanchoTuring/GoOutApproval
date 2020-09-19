@@ -1,0 +1,71 @@
+<!--pages/teacher/detail/detail.wxml-->
+<view class="bg-cumtb2" style="height: 50rpx;" />
+<view class="text-center text-bold text-xxl text-white margin-top">申请详情</view>
+<view class="cu-card">
+  <view class="cu-item">
+
+    <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+      <text class="cuIcon-title text-cumtb2 margin-left">
+        <text class="text-white margin-left">学生基本信息</text>
+      </text>
+    </view>
+    <view class="bg-white padding-lr-xl margin-top">
+      <view class="cu-form-group align-center">
+        姓名：{{info.ans[0]}}
+      </view>
+      <view class="cu-form-group align-center">
+        专业班级：{{info.ans[2]}}
+      </view>
+      <view class="cu-form-group align-center">
+        <view>
+        性别：
+        <text wx:if="{{info.ans[1]==0}}">男</text>
+        <text wx:else>女</text>
+      </view>
+      </view>
+      <view class="cu-form-group align-center">
+        学号：{{info.stuId}}
+      </view>
+    </view>
+    <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+      <text class="cuIcon-title text-cumtb2 margin-left">
+        <text class="text-white margin-left">外出信息</text>
+      </text>
+    </view>
+    <view class="bg-white padding-lr-xl margin-top">
+      <view class="cu-form-group align-center">
+        <view>
+        外出时间：{{info.ans[3]}} 
+        <text wx:if="{{info.ans[4]==0}}">上午</text>
+        <text wx:elif="{{info.ans[4]==1}}">下午</text>
+        <text wx:else>全天</text>
+      </view>
+      </view>
+      <view class="cu-form-group align-center">
+        外出原因：{{info.ans[5]}}
+      </view>
+
+
+    </view>
+    <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius" wx:if='{{info.ans[6]!=""}}'>
+        <text class="cuIcon-title text-cumtb2 margin-left">
+          <text class="text-white margin-left">证明材料</text>
+        </text>
+      </view>
+      <view class="bg-white padding-sm" wx:if='{{info.ans[6]!=""}}'>
+          <image src="{{info.ans[6]}}" mode="aspectFit"></image>
+  
+      </view>
+    <view class="cu-bar btn-group margin-tb" wx:if="{{target==0}}">
+      <button class="bg-cumtb2 text-white round" bindtap="confirm">同意外出</button>
+      <button class="bg-grey round" bindtap="refuse">申请驳回</button>
+    </view>
+    <view wx:else class="cu-bar btn-group margin-tb">
+      <view class=" text-bold text-xl">
+        <text>{{info.dTime}} </text>
+        <text wx:if="{{info.status==1}}" class="text-green">批准</text>
+        <text wx:else class="text-red">驳回</text>
+      </view>
+    </view>
+  </view>
+</view>

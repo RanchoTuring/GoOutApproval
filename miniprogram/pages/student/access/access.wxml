@@ -1,0 +1,57 @@
+<!--pages/student/access/access.wxml-->
+
+<!--<view class="circle no">禁止外出</view> -->
+
+<view class="bg-cumtb2" style="height: 50rpx;" />
+<view class="text-center text-bold text-xxl text-white margin-top">外出许可</view>
+<view class="cu-card ">
+  <view wx:if="{{!info}}" class="cu-item padding-sm">
+    <view class="text-xxl justify-center flex margin-top text-bold">未查找到被批准的外出申请</view>
+  </view>
+  <view wx:else class="cu-item padding-sm">
+
+    <view class="info margin-top padding">
+      <view class="text-xxl justify-center flex margin-top text-bold">
+        <view>
+          外出时间：{{info.ans[3]}}
+          <text wx:if="{{info.ans[4]==0}}">上午</text>
+          <text wx:elif="{{info.ans[4]==1}}">下午</text>
+          <text wx:else>全天</text>
+        </view>
+      </view>
+
+      <view class="bg-white padding-lr-xl margin-top text-lg">
+        <view class="cu-form-group align-center">
+          姓名：{{info.ans[0]}}
+        </view>
+        <view class="cu-form-group align-center">
+          专业班级：{{info.ans[2]}}
+        </view>
+        <view class="cu-form-group align-center">
+          <view>
+            性别：
+            <text wx:if="{{info.ans[1]==0}}">男</text>
+            <text wx:else>女</text>
+          </view>
+        </view>
+        <view class="cu-form-group align-center">
+          学号：{{info.stuId}}
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{canAccess}}" class="flex justify-end padding-sm ">
+      <!-- <view class="text-xl text-bold padding-left-xl " style="color:#5acc9b;">
+        许可在有效期内
+      </view> -->
+      <view>
+        <view class="circle yes">允许外出</view>
+      </view>
+    </view>
+    <view wx:else class="flex justify-end padding-sm">
+      <!-- <view class="text-xl text-bold padding-left-xl text-red">许可已过期</view> -->
+      <view>
+        <view class="circle no">禁止外出</view>
+      </view>
+    </view>
+  </view>
+</view>

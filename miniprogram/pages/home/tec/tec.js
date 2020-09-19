@@ -1,66 +1,36 @@
 // pages/home/tec/tec.js
+const app=getApp()
 Page({
-
+	navToApproval(){
+		wx.navigateTo({
+			url: '/pages/teacher/approval/approval',
+		})
+  },
+  navToHistory(){
+		wx.navigateTo({
+			url: '/pages/teacher/history/history',
+		})
+  },
   /**
    * 页面的初始数据
    */
   data: {
-
+    collegeMap:{
+      '01':'资源',
+      '02':'地测',
+      '03':'化环',
+      '04':'机电',
+      '05':'管理',
+      '06':'力建',
+      '07':'理',
+      '08':'文法'
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.setData({
+      college:this.data.collegeMap[app.globalData.id.substr(4,2)],
+      grade:app.globalData.id.substr(6)
+    })
   }
 })

@@ -1,9 +1,9 @@
-<!--pages/teacher/approval/approval.wxml-->
+<!--pages/student/history/history.wxml-->
 
 <view class="bg-cumtb2" style="height: 50rpx;" />
-<view class="text-center text-xxl text-bold text-white margin-top">未处理申请</view>
+<view class="text-center text-xxl text-bold text-white margin-top">历史申请</view>
 
-<view class="cu-card " wx:for="{{applys}}" wx:key="*this" bindtap="navToDetail" data-info="{{item}}" data-target="0">
+<view class="cu-card " wx:for="{{applys}}" wx:key="*this" bindtap="navToDetail" data-info="{{item}}">
   <view class="cu-item padding ">
     <view class="solid-bottom padding-bottom-sm justify-between align-center flex">
       <view class="text-bold text-blue text-xl ">{{item.ans[0]}}</view>
@@ -17,14 +17,14 @@
         <text wx:else>全天</text>
       </view>
     </view>
-    <view class="text-grey margin-top text-sm justify-between flex align-center">
-      提交时间：{{item.ctime}} 
+    <view class="margin-top text-xl text-bold justify-between flex align-center">
+      <text wx:if="{{item.status==1}}" class="text-green">批准</text>
+        <text wx:elif="{{item.status==-1}}" class="text-red">驳回</text>
+        <text wx:else class="text-grey">审批中</text>
       <view class="cu-tag padding bg-yellow radius text-lg text-bold">
-        审批
+        查看详情
       </view>
     </view>
-
-
-
   </view>
 </view>
+

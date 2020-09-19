@@ -31,7 +31,7 @@ Page({
   },
   //提交信息到数据库
   submit(e) {
-    console.log("提交信息：", e.detail.value)
+   // console.log("提交信息：", e.detail.value)
     let that = this
     this.setData({
       id: e.detail.value.id,
@@ -46,7 +46,7 @@ Page({
         type: e.detail.value.type
       }
     }).then(res => {
-      console.log(res)
+     // console.log(res)
       //绑定成功，根据用户类型跳转
       app.globalData.id = that.data.id
       app.globalData.type = that.data.type
@@ -88,7 +88,7 @@ Page({
   onLoad: function (options) {
     if (app.globalData.userInfo) {
       console.log('全局启动时获取到了信息')
-      console.log(app.globalData.userInfo)
+     // console.log(app.globalData.userInfo)
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
@@ -102,7 +102,7 @@ Page({
           hasUserInfo: true
         })
         console.log('页面启动时获取')
-        console.log(res)
+      //  console.log(res)
       }
 
     } else {
@@ -166,12 +166,6 @@ Page({
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -180,40 +174,5 @@ Page({
     this.setData({
       isFirstLogin: app.globalData.isFirstLogin
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

@@ -1,2 +1,70 @@
-<!--pages/student/apply/apply.wxml-->
-<text>pages/student/apply/apply.wxml</text>
+<!--miniprogram/pages/reader/question/question.wxml-->
+<view class="bg-cumtb2 padding-xs">
+  <text class="text-white margin-left ">疫情防控期间学生外出申请系统</text> </view>
+<view class="cu-bar bg-cumtb solid-bottom">
+  <view class="action">
+    <text class="text-white text-xl text-bold">学生外出申请</text>
+  </view>
+</view>
+<view class="bg-cumtb">
+  <view class="text-left padding">
+    <text class="text-df text-white">请根据实际情况，填写如下信息，如有必要请拍照上传证明材料</text>
+  </view>
+</view>
+
+<form bindsubmit="submit">
+  <view wx:for="{{questions.ques}}" wx:key="*this">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="cu-avatar sm round margin-lr bg-cumtb">{{index+1}}</view>
+      <text>{{item.title}}</text>
+      <text></text>
+    </view>
+    <view class="bg-white">
+      <view wx:if="{{item.type ==0 }}">
+        <radio-group class="block" name="{{index}}">
+          <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+            <view class="title">{{item}}</view>
+            <radio class="yellow" value="{{index}}"></radio>
+          </view>
+        </radio-group>
+      </view>
+      <view wx:elif="{{item.type ==1 }}">
+        <checkbox-group name="{{index}}">
+          <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+            <view class="title">{{item}}</view>
+            <checkbox class="yellow" value="{{index}}"></checkbox>
+          </view>
+        </checkbox-group>
+      </view>
+      <view wx:elif="{{item.type==2}}" class="padding">
+        <input name="{{index}}" placeholder="请在这里输入您的答案"></input>
+      </view>
+      <view wx:elif="{{item.type==3}}" class="padding">
+        <textarea placeholder="请输入内容" name="{{index}}" />
+        </view>   
+        <view wx:elif="{{item.type==4}}" class="padding flex justify-between align-center">
+          {{date}}
+            <picker mode="date" name="{{index}}" start="2020-01-01" bindchange="bindDateChange" >
+              <view class="picker cu-btn bg-yellow">
+                点此选择日期	
+              </view>
+            </picker>
+          </view>
+          <view wx:else class="padding" >
+            <input name="{{index}}" value="{{imgUrl}}" hidden/>
+            <view wx:if="{{!imgUrl}}" class="cu-btn bg-yellow" bindtap="doUpload" name="{{index}}">
+              上传图片
+            </view>
+            <view class="uploader-container" wx:if="{{imgUrl}}">
+              <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit"></image>
+            </view>
+          </view> 
+        </view>
+        
+
+    </view>
+	<view class="cu-bar btn-group margin-tb bg-white">
+	<button class="cu-btn bg-cumtb text-white round" form-type="submit">提交</button>
+	<button class="cu-btn bg-grey text-white round" form-type="reset">重填</button>
+	</view> 
+</form>
