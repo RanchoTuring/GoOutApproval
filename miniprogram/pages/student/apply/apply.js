@@ -2,6 +2,25 @@
 const util = require('../../../utils/dataUtil.js')
 const app = getApp()
 Page({
+  // 校验参数
+  verify(e) {
+    let can=true
+    let list=e.detail.value
+    for(let i=0;i<6;i++){
+      if(list[i]==""){
+        can=false
+        break;
+      }
+    }
+    if (!can) {
+      wx.showToast({
+        title: '请完整填写信息',
+        icon: 'none'
+      })
+    } else {
+      this.submit(e)
+    }
+  },
   //提交申请，根据学生学号，将申请传入对应的云数据库
   submit(e) {
     const db = wx.cloud.database()

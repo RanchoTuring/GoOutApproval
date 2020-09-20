@@ -12,7 +12,7 @@
   </view>
 </view>
 
-<form bindsubmit="submit">
+<form bindsubmit="verify">
   <view wx:for="{{questions.ques}}" wx:key="*this">
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class="cu-avatar sm round margin-lr bg-cumtb">{{index+1}}</view>
